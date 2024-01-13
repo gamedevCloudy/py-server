@@ -1,0 +1,25 @@
+<form
+  id="loginForm"
+  hx-post="/login"
+  hx-trigger="submit"
+  hx-target="#loginResult"
+>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required />
+
+  <button type="submit">Sign Up</button>
+  <button
+    class="secondary"
+    hx-get="login"
+    hx-trigger="click delay:300ms"
+    hx-swap="swappable"
+  >
+    Login
+  </button>
+</form>
