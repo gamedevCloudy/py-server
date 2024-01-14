@@ -1,11 +1,11 @@
-<div id="swappable">
+<article>
   <form
     id="signupForm"
     hx-post="/signup"
     hx-trigger="submit delay:300ms"
     hx-target="#swappable"
+    hx-target-error="#error"
     hx-swap="innerHTML"
-    hx-target-errors="errors"
   >
     <label for="name">
       <input type="text" id="name" name="name" placeholder="Name" required />
@@ -31,9 +31,7 @@
       required
     />
 
-    <div class="grid">
-      <button type="submit">Sign Up</button>
-    </div>
+    <button type="submit">Sign Up</button>
   </form>
-  <div id="errors" aria-invalid="true"></div>
-</div>
+  <div id="errors"></div>
+</article>

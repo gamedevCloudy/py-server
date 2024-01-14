@@ -1,9 +1,10 @@
-<article id="swappable">
+<article>
 <form
   id="loginForm"
   hx-post="/login"
-  hx-trigger="submit"
-  hx-target="#loginResult"
+  hx-trigger="submit delay:300ms"
+  hx-target="#swappable"
+  hx-swap="innerHTML"
 >
   <label for="email">
     <input type="text" id="email" name="email" placeholder="Email" required />
