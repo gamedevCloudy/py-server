@@ -1,4 +1,4 @@
-<nav>
+<nav hx-get="/nav" hx-trigger="changed delay: 5s" hx-swap="outerHTML">
   <ul>
     <li>
       <hgroup>
@@ -9,6 +9,7 @@
   </ul>
   <ul>
     <li><a href="#">Contact</a></li>
+    {% if not current_user.is_authenticated %}
     <li>
       <a
         href="#"
@@ -35,5 +36,33 @@
         Login
       </a>
     </li>
+    {% endif %} {% if current_user.is_authenticated %}
+    <li>
+      <a
+        href=""
+        role="button"
+        class="secondary"
+        hx-get="/profile"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Profile
+      </a>
+    </li>
+    <li>
+      <a
+        href="/"
+        role="button"
+        class="contrast"
+        hx-get="/logout"
+        hx-trigger="click delay: 300ms"
+        hx-target="#swappable"
+        hx-swap="innerHTML"
+      >
+        Logout
+      </a>
+    </li>
+    {% endif %}
   </ul>
 </nav>

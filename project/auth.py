@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, jsonify
+from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
 from . import db 
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user
 
 
 auth = Blueprint('auth', __name__)
@@ -56,7 +56,17 @@ def signup_post():
     return signup_success
 
 
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return logging_out
+
 user_exists = """<article hx-get="/login" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">User already exists.</p></article>"""
 signup_success = """<article hx-get="/login" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Account created, please login.</p></article>"""
 
 invalid_credentails = """<article hx-get="/login" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Invalid credentials.</p></article>"""
+
+
+logging_out= """<article hx-get="/home" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Logging out...</p></article>"""
