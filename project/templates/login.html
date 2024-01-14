@@ -1,22 +1,25 @@
+<article id="swappable">
 <form
   id="loginForm"
   hx-post="/login"
   hx-trigger="submit"
   hx-target="#loginResult"
 >
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required />
+  <label for="email">
+    <input type="text" id="email" name="email" placeholder="Email" required />
+  </label>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required />
+  <label for="password">
+    <input type="password" id="password" name="password" placeholder="Password" required />
+  </label>
 
-  <button type="submit">Login</button>
-  <button
-    class="secondary"
-    hx-get="signup"
-    hx-trigger="click delay:300ms"
-    hx-swap="swappable"
-  >
-    Sign Up
-  </button>
+  <label for="remember">
+    <input id="remember" type="checkbox">Remember Me</input>
+  </label>
+  <div class="grid">
+
+    <button type="submit">Login</button>
+
+  </div>
 </form>
+</article>
