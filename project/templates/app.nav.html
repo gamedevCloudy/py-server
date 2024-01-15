@@ -1,0 +1,78 @@
+<nav>
+  <ul>
+    <li>
+      <p><strong> See Tara </strong></p>
+    </li>
+  </ul>
+  <ul>
+    <li><a href="#">Contact</a></li>
+    {% if not current_user.is_authenticated %}
+    <li>
+      <a
+        href="#"
+        role="button"
+        class="secondary"
+        hx-get="/signup"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Sign Up
+      </a>
+    </li>
+    <li>
+      <a
+        href="#login"
+        role="button"
+        class="primary"
+        hx-get="/login"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Login
+      </a>
+    </li>
+    {% endif %} {% if current_user.is_authenticated %}
+    <li>
+      <a
+        href=""
+        role="button"
+        class="secondary"
+        hx-get="/app/leaderboards"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Leaderboards
+      </a>
+    </li>
+    <li>
+      <a
+        href=""
+        role="button"
+        class="secondary"
+        hx-get="/app/profile"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Profile
+      </a>
+    </li>
+    <li>
+      <a
+        href="/"
+        role="button"
+        class="secondary"
+        hx-get="/logout"
+        hx-trigger="click delay: 300ms"
+        hx-target="#swappable"
+        hx-swap="innerHTML"
+      >
+        Logout
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

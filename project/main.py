@@ -8,19 +8,14 @@ main = Blueprint('main', __name__)
 def home():
     return render_template('index.html')
 
-@main.route('/home')
-def home_logout():
-    return render_template('home.html')
+@main.route('/logout-success')
+def logout_success():
+    return render_template('logged_out.html')
 
 @main.route('/profile')
 @login_required
 def profile(): 
     return render_template('profile.html', name=current_user.name)
-
-@main.route('/levels')
-def levels():
-    return render_template('levels.html')
-
 
 # in page elements
 @main.route('/nav')

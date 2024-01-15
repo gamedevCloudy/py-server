@@ -26,7 +26,7 @@ def login_post():
         return invalid_credentails
 
     login_user(user, remember=remember)
-    return redirect(url_for('main.profile'))
+    return loggin_in
 
 
 @auth.route('/signup')
@@ -68,5 +68,7 @@ signup_success = """<article hx-get="/login" hx-target="#swappable" hx-trigger="
 
 invalid_credentails = """<article hx-get="/login" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Invalid credentials.</p></article>"""
 
+# loggin_in = """<article hx-get="/app-load" hx-trigger="load delay:1200ms" hx-redirect hx-push-url="/app"><p aria-busy="true">Logging in...</p></article>"""
+loggin_in = """<article hx-get="/app-load" hx-trigger="load delay:1200ms"><p aria-busy="true">Logging in...</p></article>"""
 
-logging_out= """<article hx-get="/home" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Logging out...</p></article>"""
+logging_out= """<article hx-get="/logout-success" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Logging out...</p></article>"""
