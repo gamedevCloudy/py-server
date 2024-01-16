@@ -5,40 +5,25 @@
     </li>
   </ul>
   <ul>
-    <li><a href="#">Contact</a></li>
-    {% if not current_user.is_authenticated %}
-    <li>
-      <a
-        href="#"
-        role="button"
-        class="secondary"
-        hx-get="/signup"
-        hx-target="#swappable"
-        hx-trigger="click delay: 300ms"
-        hx-swap="innerHTML"
-      >
-        Sign Up
-      </a>
-    </li>
-    <li>
-      <a
-        href="#login"
-        role="button"
-        class="primary"
-        hx-get="/login"
-        hx-target="#swappable"
-        hx-trigger="click delay: 300ms"
-        hx-swap="innerHTML"
-      >
-        Login
-      </a>
-    </li>
-    {% endif %} {% if current_user.is_authenticated %}
+    {% if current_user.is_authenticated %}
     <li>
       <a
         href=""
         role="button"
-        class="secondary"
+        class="primary outline"
+        hx-get="/app/levels"
+        hx-target="#swappable"
+        hx-trigger="click delay: 300ms"
+        hx-swap="innerHTML"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href=""
+        role="button"
+        class="secondary outline"
         hx-get="/app/leaderboards"
         hx-target="#swappable"
         hx-trigger="click delay: 300ms"
@@ -51,7 +36,7 @@
       <a
         href=""
         role="button"
-        class="secondary"
+        class="secondary outline"
         hx-get="/app/profile"
         hx-target="#swappable"
         hx-trigger="click delay: 300ms"
@@ -64,7 +49,7 @@
       <a
         href="/"
         role="button"
-        class="secondary"
+        class="contrast outline"
         hx-get="/logout"
         hx-trigger="click delay: 300ms"
         hx-target="#swappable"
