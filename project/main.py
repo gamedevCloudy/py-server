@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-# app = Flask(__name__)
+
+
 main = Blueprint('main', __name__)
+
 
 # Define the root route
 @main.route('/')
@@ -21,3 +23,7 @@ def profile():
 @main.route('/nav')
 def nav(): 
     return render_template('nav.html')
+
+
+
+

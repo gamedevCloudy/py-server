@@ -9,6 +9,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
     />
+
+    <link
+      rel="shrotcut icon"
+      href="https://cdn-icons-png.flaticon.com/16/1828/1828884.png"
+    />
+
     <title>See Tara</title>
   </head>
   <body>
@@ -18,7 +24,7 @@
         hx-swap="innerHTML"
         hx-trigger="load delay: 200ms"
       ></header>
-      {% block content %} {% endblock %}
+      <main>{% block content %} {% endblock %}</main>
       <footer>@copyright Nyx Aerospace LLP 2024</footer>
     </article>
   </body>
