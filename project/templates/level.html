@@ -1,0 +1,45 @@
+<div class="container">
+  <article>
+    <button
+      hx-get="/app/levels"
+      hx-target="#swappable"
+      hx-swap="innerHTML"
+      style="width: max-content"
+      class="contrast outline"
+    >
+      <-
+    </button>
+    <hgroup>
+      <h1>{{ level.name }}</h1>
+      <h3>Level {{ level.id}}</h3>
+    </hgroup>
+    <p>{{ level.description }}</p>
+    <progress
+      style="margin: 16px 16px"
+      value="{{ progress }}"
+      max="100"
+    ></progress>
+    <nav>
+      <a
+        href="/app/level/{{level.id}}/test/1"
+        role="button"
+        class="primary outline"
+        >Checkpoint 1
+      </a>
+
+      <a
+        href="/app/level/{{level.id}}/test/2"
+        role="button"
+        class="primary outline"
+        >Checkpoint 2</a
+      >
+
+      <a
+        href="/app/level/{{level.id}}/test/3"
+        role="button"
+        class="primary outline"
+        >Checkpoint 3</a
+      >
+    </nav>
+  </article>
+</div>
