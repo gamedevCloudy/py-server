@@ -1,0 +1,34 @@
+<div class="levels-container container">
+  {% for level in levels %}
+  <div
+    class="level container"
+    id="level-{{ level.id }}"
+    {%
+    if
+    not
+    level.is_visible
+    %}
+    style="opacity: 0.5; pointer-events: none"
+    {%
+    endif
+    %}
+  >
+    <article>
+      <hgroup>
+        <h1 class="primary">{{ level.id }}</h1>
+        <h2>{{ level.name }}</h2>
+      </hgroup>
+
+      <button
+        class="primary outline"
+        hx-get="/app/level/{{level.id}}"
+        hx-swap="innerHTML"
+        hx-target="#swappable"
+        hx-tigger="clicked delay:300ms"
+      >
+        Play
+      </button>
+    </article>
+  </div>
+  {% endfor %}
+</div>
