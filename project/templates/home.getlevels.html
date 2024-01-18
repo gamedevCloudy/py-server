@@ -1,5 +1,9 @@
 {% extends 'home.html'%} {%block content %}
 <div id="swappable">
-  <div hx-get="/app/levels" hx-trigger="load delay:200ms"></div>
+  <div
+    hx-get="/app/levels"
+    hx-trigger="load delay:200ms"
+    hx-swap="outerHTML"
+  ></div>
 </div>
 {% endblock%}
