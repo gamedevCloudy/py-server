@@ -36,5 +36,7 @@ def create_app():
     from .home import home as home_blueprint
     app.register_blueprint(home_blueprint)
 
+    from .level import level as level_blueprint
+    app.register_blueprint(level_blueprint)
 
     return app

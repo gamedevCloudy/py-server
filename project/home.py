@@ -35,28 +35,7 @@ def levels():
     return render_template('home.levels.html', levels=levels, progress=progress)
 
 
-@home.route('/app/level/<int:id>')  # Use <int:id> for type-checking
-@login_required
-def load_level(id):
-    level = Level.query.get(id)  # Retrieve the level from the database
 
-    if level:
-        user_progress = UserProgress.query.filter_by(user_id=current_user.id, level_id=id).first()
-        if user_progress:
-            progress = (user_progress.sublevels_completed / level.tests_required) * 100
-        else:
-            progress = 0  # No progress if no entry in UserProgress
-
-        return render_template('level.html', level=level, progress=progress)
-    else:
-        # Handle the case where the level doesn't exist
-        return "Level not found", 404
-
-@home.route('/app/level/<int:level_id>/test/<int:test_id>')
-@login_required
-def load_test(level_id, test_id):
-    return "tests will go here."
- 
 
 @home.route('/app/profile')
 @login_required

@@ -1,0 +1,25 @@
+<article>
+  <div>
+    <strong>Q.{{question.id}}. {{ question.text }} ?</strong>
+    <br />
+    <br />
+    <br />
+    <div class="grid" id="options">
+      {% for answer in answers%}
+      <div>
+        <button
+          id="{{answer.id}}"
+          class="outline"
+          hx-get="/app/level/check/{{ question.id }}/{{answer.id}}"
+          hx-trigger="click delay:300ms"
+          hx-swap="innerHTML"
+          hx-target="#options"
+        >
+          {{ answer.text }}
+        </button>
+      </div>
+      {% endfor %}
+    </div>
+    <div id="response"></div>
+  </div>
+</article>
