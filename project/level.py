@@ -3,6 +3,8 @@ from flask_login import login_required, current_user
 from . import db
 from .models import Level, UserProgress, Question, Answer
 
+from .submodules import progresshelper
+
 level = Blueprint('level', __name__)
 
 
@@ -33,8 +35,11 @@ def load_test(level_id,sublevel_id):
     question = Question.query.filter_by(level_id=level_id, sublevel_index=sublevel_id).order_by(Question.id).first()
     answers = Answer.query.filter_by(question_id=question.id)
 
+    progresshelper.updateProgress(level_id)
+    # update user progress table
     return render_template('level.test.html', question=question, answers=answers)
  
+
 
 @level.route('/app/level/check/<int:question_id>/<int:answer_id>')
 @login_required
@@ -65,12 +70,12 @@ def check_answer(question_id, answer_id):
     ).order_by(Question.id).first()  # Order by ID for correct sequencing
 
     if(next_question != None): 
-        requestNextQuestion=f"""<div 
+        requestNextQuestion=f"""<a
         hx-get="/app/level/question/{ next_question.id }"
         hx-swap="innerHTML"
         hx-target="#swappable"
         hx-trigger="load delay:1200ms"
-        >""" 
+        ></a>""" 
         return response+requestNextQuestion
     else: 
         success_screen=f"""<div 
@@ -106,5 +111,5 @@ def success_screen(level_id, sublevel_index):
     Continue
     </a>
     </div>"""
-
+    progresshelper.updateSublevelProgress(level_id,sublevel_index)
     return success

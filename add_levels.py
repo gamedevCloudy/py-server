@@ -13,7 +13,7 @@ with app.app_context():
         level = Level(
             name=f"Level {i}",  # Simple numerical naming
             description="Placeholder description for a safe and inclusive level",
-            tests_required=random.randint(2, 5),  # Set a random number of tests
+            tests_required=random.randint(3),  # Set a random number of tests
             is_visible=i == 1  # Only the first level (Level 1) is visible initially
         )
         db.session.add(level)
