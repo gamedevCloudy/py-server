@@ -69,6 +69,6 @@ signup_success = """<article hx-get="/login" hx-target="#swappable" hx-trigger="
 invalid_credentails = """<article hx-get="/login" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Invalid credentials.</p></article>"""
 
 # loggin_in = """<article hx-get="/app-load" hx-trigger="load delay:1200ms" hx-redirect hx-push-url="/app"><p aria-busy="true">Logging in...</p></article>"""
-loggin_in = """<article hx-get="/app-load" hx-trigger="load delay:1200ms"><p aria-busy="true">Logging in...</p></article>"""
+loggin_in = """<article hx-get="/app-load" hx-trigger="load delay:1200ms"  hx-redirect ><p aria-busy="true">Logging in...</p></article>"""
 
 logging_out= """<article hx-get="/logout-success" hx-target="#swappable" hx-trigger="load delay:1200ms" hx-swap="innerHTML"><p aria-busy="true">Logging out...</p></article>"""

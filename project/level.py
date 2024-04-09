@@ -61,7 +61,7 @@ def check_answer(question_id, answer_id):
     next_question = Question.query.filter(
         Question.id > current_question.id,  # Use `filter` for arbitrary expressions
         Question.level_id == current_question.level_id,
-        Question.sublevel_index == question_id
+        Question.sublevel_index == current_question.sublevel_index
     ).order_by(Question.id).first()  # Order by ID for correct sequencing
 
     if(next_question != None): 

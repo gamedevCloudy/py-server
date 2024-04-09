@@ -10,7 +10,7 @@ with app.app_context():
             question = Question(
                 level_id=1,
                 sublevel_index=sublevel_index,
-                text=f"Dummy question for level {1} {sublevel_index}",
+                text=f"Dummy question for level {1} {sublevel_index} {question_number}",
             )
             db.session.add(question)
             db.session.commit()
