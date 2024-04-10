@@ -13,22 +13,22 @@
     endif
     %}
   >
-    <article>
-      <hgroup>
-        <h1 class="primary">{{ level.id }}</h1>
-        <h2>{{ level.name }}</h2>
-      </hgroup>
+    <!-- <article> -->
+    <hgroup>
+      <h1 class="primary">{{ level.id }}</h1>
+      <h2>{{ level.name }}</h2>
+    </hgroup>
 
-      <button
-        class="primary outline"
-        hx-get="/app/level/{{level.id}}"
-        hx-swap="innerHTML"
-        hx-target="#swappable"
-        hx-tigger="clicked delay:300ms"
-      >
-        Play
-      </button>
-    </article>
+    <button
+      class="primary outline"
+      hx-get="/app/level/{{level.id}}"
+      hx-swap="innerHTML"
+      hx-target="#swappable"
+      hx-tigger="clicked delay:300ms"
+    >
+      Play
+    </button>
+    <!-- </article> -->
   </div>
   {% endfor %}
 </div>

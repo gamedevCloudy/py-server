@@ -1,7 +1,7 @@
 import random
 
-from project import db, models, create_app  # Assuming database instance is named 'db'
-from project.models import Question, Answer
+from .. import db, models, create_app  # Assuming database instance is named 'db'
+from ..models import Question, Answer
 app = create_app()
 
 with app.app_context(): 

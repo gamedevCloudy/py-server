@@ -1,4 +1,4 @@
-from project import db, models, create_app
+from .. import db, models, create_app
 
 app = create_app()
 
